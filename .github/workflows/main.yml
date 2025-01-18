@@ -1,0 +1,24 @@
+name: CI
+on: [pull_request]
+jobs:
+  build:
+    env:
+      NODE_ENV: test
+      DATABASE_URL: postgresql://hotaru-consent-test:postgres@localhost/hotaru-consent-test
+    name: Test
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        ports:
+          - "5432:5432"
+        env:
+          POSTGRES_USER: hotaru-consent-test
+          POSTGRES_PASSWORD: postgres
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+      - run: npm install
+      - run: npm test

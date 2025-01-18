@@ -1,0 +1,15 @@
+services:
+  db:
+    image: "postgres:latest"
+    ports:
+      - "5432:5432"
+    environment:
+      - "POSTGRES_USER=hearth-batch"
+      - "POSTGRES_PASSWORD=postgres"
+  db-test:
+    image: "postgres:latest"
+    ports:
+      - "5433:5432"
+    environment:
+      - "POSTGRES_USER=hearth-batch-test"
+      - "POSTGRES_PASSWORD=postgres"

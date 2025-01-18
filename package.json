@@ -1,0 +1,45 @@
+{
+  "name": "hearth-batch",
+  "version": "0.0.1",
+  "description": "a barch orchestrator for security labeling",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "NODE_ENV=test npm run db:test:migrate && npx jest --runInBand --forceExit",
+    "db:generate": "npx drizzle-kit generate",
+    "db:local:start": "docker-compose up -d",
+    "db:dev:migrate": "NODE_ENV=dev npx drizzle-kit migrate",
+    "db:test:migrate": "NODE_ENV=test npx drizzle-kit migrate",
+    "db:prod:migrate": "NODE_ENV=prod npx drizzle-kit migrate",
+    "db:local:stop": "docker-compose down"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mojitoj/hearth-batch.git"
+  },
+  "keywords": [
+    "fhir",
+    "sls",
+    "ds4p"
+  ],
+  "author": "mo",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/mojitoj/hearth-batch/issues"
+  },
+  "homepage": "https://github.com/mojitoj/hearth-batch#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.38.4",
+    "express": "^4.21.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.13.1",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.30.2",
+    "jest": "^29.7.0",
+    "nock": "^13.5.6",
+    "supertest": "^7.0.0"
+  }
+}
