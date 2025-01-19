@@ -5,7 +5,6 @@ const {
   timestamp,
   index
 } = require("drizzle-orm/pg-core");
-const { fhir_servers } = require("./fhir_servers");
 
 const jobs = pgTable(
   "jobs",
@@ -13,9 +12,7 @@ const jobs = pgTable(
     id: varchar().primaryKey(),
     status: varchar(),
     createdAt: timestamp().notNull().defaultNow(),
-    fhir_server: varchar().references(() => fhir_servers.id, {
-      onDelete: "cascade"
-    }),
+    fhir_base: varchar().notNull(),
     resource_identifier: varchar(),
     payload: jsonb()
   },
