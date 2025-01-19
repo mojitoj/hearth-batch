@@ -1,34 +1,9 @@
 {
-  "id": "b9d4011b-d544-492b-9733-ad4ac075356a",
+  "id": "73bbce97-a471-4b93-9ec4-7b6921f75fa5",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.fhir_servers": {
-      "name": "fhir_servers",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "varchar",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "base": {
-          "name": "base",
-          "type": "varchar(64)",
-          "primaryKey": false,
-          "notNull": true
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
     "public.jobs": {
       "name": "jobs",
       "schema": "",
@@ -52,11 +27,11 @@
           "notNull": true,
           "default": "now()"
         },
-        "fhir_server": {
-          "name": "fhir_server",
+        "fhir_base": {
+          "name": "fhir_base",
           "type": "varchar",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "resource_identifier": {
           "name": "resource_identifier",
@@ -88,21 +63,7 @@
           "with": {}
         }
       },
-      "foreignKeys": {
-        "jobs_fhir_server_fhir_servers_id_fk": {
-          "name": "jobs_fhir_server_fhir_servers_id_fk",
-          "tableFrom": "jobs",
-          "tableTo": "fhir_servers",
-          "columnsFrom": [
-            "fhir_server"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
+      "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {},

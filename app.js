@@ -1,6 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
 
+const FHIRSubscription = require("./controller/fhir-subscription");
+
 const { error } = require("./controller/error");
 
 const app = express();
@@ -13,7 +15,7 @@ process.env.NODE_ENV === "production" || app.use(morgan("dev"));
 app.use(express.json({ type: "application/json" }));
 
 //routes
-
+app.post("/fhir-subscription", FHIRSubscription.post);
 
 app.use(error);
 
