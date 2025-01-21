@@ -1,6 +1,6 @@
 {
-  "id": "3122caaa-6901-4eca-8a37-0facc372b9c3",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "28cf82c4-59f1-4589-8a14-485279bb6c5c",
+  "prevId": "3122caaa-6901-4eca-8a37-0facc372b9c3",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -26,6 +26,12 @@
           "primaryKey": false,
           "notNull": false,
           "default": 0
+        },
+        "errors": {
+          "name": "errors",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         },
         "createdAt": {
           "name": "createdAt",
