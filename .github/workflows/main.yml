@@ -5,6 +5,8 @@ jobs:
     env:
       NODE_ENV: test
       DATABASE_URL: postgresql://hotaru-consent-test:postgres@localhost/hotaru-consent-test
+      SLS_ENDPOINT: https://mock-sls/sls
+      MAX_ATTEMPTS: 3
     name: Test
     runs-on: ubuntu-latest
     services:
