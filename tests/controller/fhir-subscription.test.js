@@ -21,7 +21,7 @@ it("process id only bundle", async () => {
     .where(
       and(
         eq(jobs.fhir_base, "https://example.org/FHIR/R5"),
-        eq(jobs.resource_identifier, "Encounter/2")
+        eq(jobs.resource_id, "Encounter/2")
       )
     );
   expect(job.length).toEqual(1);
@@ -39,7 +39,7 @@ it("process full bundle", async () => {
     .where(
       and(
         eq(jobs.fhir_base, "https://example.org/FHIR/R5"),
-        eq(jobs.resource_identifier, "Encounter/2")
+        eq(jobs.resource_id, "Encounter/2")
       )
     );
   expect(job.length).toEqual(1);
